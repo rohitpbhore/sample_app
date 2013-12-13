@@ -1,5 +1,6 @@
 NewIssues::Application.routes.draw do
-  devise_for :users
+  # devise_for :users
+  devise_for :users, :controllers => { sessions: 'sessions' }
 
   get "timeline/index"
 
