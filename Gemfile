@@ -42,6 +42,8 @@ group :test do
 	# gem 'capybara'
 	gem 'guard-rspec'
 	gem 'libnotify'
+	# For mac OS Only
+	# gem 'growl_notify'
 end
 
 # To use ActiveModel has_secure_password
