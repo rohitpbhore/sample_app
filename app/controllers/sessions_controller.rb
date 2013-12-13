@@ -16,7 +16,7 @@ class SessionsController < Devise::SessionsController
   end
 
   def destroy
-    resource = User.find_for_database_authentication(params[])
+    resource = User.find_for_database_authentication(:email => params[:email])
     resource.authentication_token = nil
     resource.save
     render :json=> {:success=>true}
