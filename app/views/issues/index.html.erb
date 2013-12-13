@@ -1,0 +1,29 @@
+<h1>Listing issues</h1>
+
+<table border="1" cellpadding="5" cellspacing="2" align="center">
+  <tr>
+    <th>Title <%=link_to "Sort", issues_path(sort: "title") %></th>
+    <th>Description <%=link_to "Sort", issues_path(sort: "description") %> </th>
+    <th>No followers <%=link_to "Sort", issues_path(sort: "no_followers") %> </th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @issues.each do |issue| %>
+  <tr>
+  <li id="issue_<%= issue.id %>">
+    <td><%= issue.title %></td>
+    <td><%= issue.description %></td>
+    <td><%= issue.no_followers %></td>
+    <td><%= link_to 'Show', issue %></td>
+    <td><%= link_to 'Edit', edit_issue_path(issue) %></td>
+    <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </li>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= render "search" %> 
