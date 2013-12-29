@@ -9,7 +9,7 @@ describe "issues" do
     fill_in 'user[password_confirmation]', :with => '12345678'
     click_button 'Sign up'
     page.should have_content 'Welcome! You have signed up successfully.'
-    
+
     @issue = FactoryGirl.create(:issue)
 	end
 

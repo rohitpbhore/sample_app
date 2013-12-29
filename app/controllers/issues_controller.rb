@@ -1,7 +1,7 @@
 class IssuesController < ApplicationController
   # GET /issues
   # GET /issues.json
-  before_filter :authenticate_user!, except: [:index, :show]
+  # before_filter :authenticate_user!, except: [:index, :show]
   def index
     @issues = Issue
     @issues = Issue.order(params[:sort]) if params[:sort]
@@ -48,7 +48,7 @@ class IssuesController < ApplicationController
       redirect_to @issue
     end
   end
-  
+
   # def found
   #   if Issue.find(1)
   #     format.html { redirect_to @issue, notice: 'Issue Found.' }
