@@ -17,16 +17,15 @@ describe IssuesController do
 
   describe "administrator access" do
     before do
-      # @user = User.create(email: 'title@gedf.com',password: '123123', password_confirmation: '123123')
-      # # @issue = FactoryGirl.create(:issue)
-      @user = FactoryGirl.create(:user)
-      session[:user_id] = @user.id
+      # @user = FactoryGirl.create(:user)
+      # session[:user_id] = @user.id
+      set_user_session FactoryGirl.create(:user)
     end
 
     # describe 'GET #new' do
     #   it "requires login" do
     #     get :new
-    #     expect(response).to redirect_to new_user_session_path
+    #     expect(response).to redirect_to require_login
     #   end
     # end
 
@@ -34,7 +33,7 @@ describe IssuesController do
     #   it "requires login" do
     #     issue = FactoryGirl.create(:issue)
     #     get :edit, id: issue
-    #     expect(response).to redirect_to new_user_session_path
+    #     expect(response).to redirect_to require_login
     #   end
     # end
 
