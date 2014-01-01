@@ -30,6 +30,12 @@ RSpec.configure do |config|
 
   config.include LoginMacros
 
+  # some setup done to trigger email delivery .
+  # require "email_spec"
+  # config.include(EmailSpec::Helpers)
+  # config.include(EmailSpec::Matchers)
+
+
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

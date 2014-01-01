@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe IssuesController do
+  let(:issue) do
+    FactoryGirl.create(:issue, title: 'Lawrence', description: 'go to work')
+  end
+
   describe 'GET #show' do
     it "assigns the requested issue to @issue" do
       issue = FactoryGirl.create(:issue)
@@ -87,7 +91,7 @@ describe IssuesController do
       # end
     end
 
-    describe 'PATCH #update' do
+    describe 'PUT #update' do
       before do
         @issue = FactoryGirl.create(:issue)
       end
@@ -132,6 +136,7 @@ describe IssuesController do
       end
 
       it "deletes the issue" do
+        issue
         expect{delete :destroy, id: @issue}.to change(Issue,:count).by(-1)
       end
 
