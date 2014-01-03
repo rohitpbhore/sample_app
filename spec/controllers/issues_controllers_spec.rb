@@ -19,27 +19,26 @@ describe IssuesController do
     end
   end
 
-  describe "administrator access" do
-    before do
-      # @user = FactoryGirl.create(:user)
-      # session[:user_id] = @user.id
-      set_user_session FactoryGirl.create(:user)
+  describe 'GET #new' do
+    it "requires login" do
+      get :new
+      expect(response).to redirect_to new_user_session_path
     end
+  end
 
-    # describe 'GET #new' do
-    #   it "requires login" do
-    #     get :new
-    #     expect(response).to redirect_to require_login
-    #   end
-    # end
+  describe 'GET #edit' do
+    it "requires login" do
+      issue = FactoryGirl.create(:issue)
+      get :edit, id: issue
+      expect(response).to redirect_to new_user_session_path
+    end
+  end
 
-    # describe 'GET #edit' do
-    #   it "requires login" do
-    #     issue = FactoryGirl.create(:issue)
-    #     get :edit, id: issue
-    #     expect(response).to redirect_to require_login
-    #   end
-    # end
+  describe "administrator access" do
+
+    before do
+      login_user
+    end
 
     describe 'GET #new' do
       it "assigns a new Issue to @issue" do
@@ -77,7 +76,6 @@ describe IssuesController do
           expect(response).to redirect_to issue_path(assigns[:issue])
         end
       end
-
 
       # context "with invalid attributes" do
       #   it "does not save the new issue in the database" do
@@ -142,7 +140,7 @@ describe IssuesController do
 
       it "redirects to issues#index" do
         delete :destroy, id: @issue
-        expect(response).to redirect_to issues_url
+        expect(response).to redirect_to issues_path
       end
     end
   end
@@ -159,7 +157,6 @@ describe IssuesController do
 
     it "redirects to issue#show" do
       get :search, title: @issue
-      # expect(response).to redirect_to issue_path
       expect(response).to render_template :search
     end
   end
