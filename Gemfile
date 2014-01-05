@@ -44,6 +44,9 @@ group :test do
 	gem 'libnotify'
 	# For mac OS Only
 	# gem 'growl_notify'
+  gem 'email_spec'
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard-livereload'
 end
 
 # To use ActiveModel has_secure_password
