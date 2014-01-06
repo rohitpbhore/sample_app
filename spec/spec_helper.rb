@@ -31,6 +31,9 @@ RSpec.configure do |config|
 
   config.include LoginMacros
 
+  config.include MailerMacros
+  config.before(:each) { reset_email }
+
   # some setup done to trigger email delivery .
   # require "email_spec"
   # config.include(EmailSpec::Helpers)
