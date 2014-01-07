@@ -22,11 +22,9 @@ describe "PasswordResets" do
 
   it "updates the user password when confirmation matches" do
     user = FactoryGirl.create(:user, :reset_password_token => "qGRgK7AZwTkZkwADiJZB", :reset_password_sent_at => 1.hour.ago)
-    path = edit_user_password_path + '/?reset_password_token=' + user.reset_password_token
-    visit path
-    # visit edit_user_password_path(user.reset_password_token)
+    visit edit_user_password_path(user.reset_password_token)
 
-    current_path.should eq(new_user_session_path)
+    current_path.should eq(edit_user_password_path)
 
     fill_in 'user[password]', :with => "12345678"
     fill_in 'user[password_confirmation]', :with => "12345678"
@@ -34,14 +32,14 @@ describe "PasswordResets" do
     page.should have_content("Your password was changed successfully.")
   end
 
-  # it "reports when password token has expired" do
-  #   user = FactoryGirl.create(:user, :reset_password_token => "something", :password_reset_sent_at => 5.hour.ago)
-  #   visit edit_password_reset_path(user.reset_password_token)
-  #   fill_in "Password", :with => "12345678"
-  #   fill_in "Password confirmation", :with => "12345678"
-  #   click_button "Change my password"
-  #   page.should have_content("Password reset has expired")
-  # end
+  it "reports when password token has expired" do
+    user = FactoryGirl.create(:user, :reset_password_token => "something", :reset_password_sent_at => 5.hour.ago)
+    visit edit_user_password_path(user.reset_password_token)
+    fill_in "Password", :with => "12345678"
+    fill_in 'user[password_confirmation]', :with => "12345678"
+    click_button "Change my password"
+    page.should have_content("Password reset has expired")
+  end
 
   it "raises record not found when password token is invalid" do
     # lambda {
