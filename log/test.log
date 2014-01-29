@@ -11122,3 +11122,262 @@ Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 1.1ms)
   [1m[35m (0.3ms)[0m  BEGIN
   [1m[36mIssue Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."title" = 'go to work' LIMIT 1[0m
   [1m[35m (0.2ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (2.0ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."title" = 'go to work' LIMIT 1[0m
+  [1m[35mSQL (3.2ms)[0m  INSERT INTO "issues" ("created_at", "description", "no_followers", "project_id", "tags", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["created_at", Thu, 09 Jan 2014 07:55:52 UTC +00:00], ["description", "rohit bhore"], ["no_followers", 2], ["project_id", 1], ["tags", nil], ["title", "go to work"], ["updated_at", Thu, 09 Jan 2014 07:55:52 UTC +00:00]]
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "timelines" ("content", "created_at", "timelineable_id", "timelineable_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Issue created"], ["created_at", Thu, 09 Jan 2014 07:55:52 UTC +00:00], ["timelineable_id", 1995], ["timelineable_type", "Issue"], ["updated_at", Thu, 09 Jan 2014 07:55:52 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by IssuesController#search as HTML
+  Parameters: {"title"=>"1995"}
+  [1m[36mIssue Load (0.6ms)[0m  [1mSELECT "issues".* FROM "issues" WHERE "issues"."title" IS NULL LIMIT 1[0m
+  [1m[35mIssue Load (0.4ms)[0m  SELECT "issues".* FROM "issues" WHERE "issues"."title" IS NULL LIMIT 1
+  Rendered issues/search.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 11ms (Views: 7.2ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mIssue Exists (0.5ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."title" = 'go to work' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "issues" ("created_at", "description", "no_followers", "project_id", "tags", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", Thu, 09 Jan 2014 07:55:52 UTC +00:00], ["description", "rohit bhore"], ["no_followers", 2], ["project_id", 1], ["tags", nil], ["title", "go to work"], ["updated_at", Thu, 09 Jan 2014 07:55:52 UTC +00:00]]
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "timelines" ("content", "created_at", "timelineable_id", "timelineable_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Issue created"], ["created_at", Thu, 09 Jan 2014 07:55:52 UTC +00:00], ["timelineable_id", 1996], ["timelineable_type", "Issue"], ["updated_at", Thu, 09 Jan 2014 07:55:52 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by IssuesController#search as HTML
+  Parameters: {"title"=>"1996"}
+  [1m[35mIssue Load (0.6ms)[0m  SELECT "issues".* FROM "issues" WHERE "issues"."title" IS NULL LIMIT 1
+  [1m[36mIssue Load (0.5ms)[0m  [1mSELECT "issues".* FROM "issues" WHERE "issues"."title" IS NULL LIMIT 1[0m
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 1.0ms)
+  [1m[35mIssue Load (1.1ms)[0m  SELECT "issues".* FROM "issues" WHERE "issues"."id" = $1 LIMIT 1  [["id", 1996]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mIssue Exists (0.6ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."title" = 'go to work' LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "issues" ("created_at", "description", "no_followers", "project_id", "tags", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", Thu, 09 Jan 2014 07:55:52 UTC +00:00], ["description", "rohit bhore"], ["no_followers", 2], ["project_id", 1], ["tags", nil], ["title", "go to work"], ["updated_at", Thu, 09 Jan 2014 07:55:52 UTC +00:00]]
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "timelines" ("content", "created_at", "timelineable_id", "timelineable_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Issue created"], ["created_at", Thu, 09 Jan 2014 07:55:52 UTC +00:00], ["timelineable_id", 1997], ["timelineable_type", "Issue"], ["updated_at", Thu, 09 Jan 2014 07:55:52 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by IssuesController#edit as HTML
+  Parameters: {"id"=>"1997"}
+Completed 401 Unauthorized in 2ms
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by IssuesController#new as HTML
+Completed 401 Unauthorized in 1ms
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'shanon@leffler.net' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("authentication_token", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["authentication_token", nil], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "shanon@leffler.net"], ["encrypted_password", "$2a$04$y5xuR/voSmyyMkKQMzGl5.ULDBDP3Qll/ZAcJZp1VoS93cCs.AKBS"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."title" = 'go to work' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "issues" ("created_at", "description", "no_followers", "project_id", "tags", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["description", "rohit bhore"], ["no_followers", 2], ["project_id", 1], ["tags", nil], ["title", "go to work"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "timelines" ("content", "created_at", "timelineable_id", "timelineable_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Issue created"], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["timelineable_id", 1998], ["timelineable_type", "Issue"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by IssuesController#destroy as HTML
+  Parameters: {"id"=>"1998"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1799 LIMIT 1[0m
+  [1m[35mIssue Load (0.6ms)[0m  SELECT "issues".* FROM "issues" WHERE "issues"."id" = $1 LIMIT 1  [["id", "1998"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  DELETE FROM "issues" WHERE "issues"."id" = $1  [["id", 1998]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/issues
+Completed 302 Found in 7ms (ActiveRecord: 2.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'tina@shieldsmetz.name' LIMIT 1[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "users" ("authentication_token", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["authentication_token", nil], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "tina@shieldsmetz.name"], ["encrypted_password", "$2a$04$9BgjajXhwyqgPwbgL6Dk0uc6/ij9K9rjd1TmavhZnuRMw1AXHU.sK"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."title" = 'go to work' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "issues" ("created_at", "description", "no_followers", "project_id", "tags", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["description", "rohit bhore"], ["no_followers", 2], ["project_id", 1], ["tags", nil], ["title", "go to work"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "timelines" ("content", "created_at", "timelineable_id", "timelineable_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Issue created"], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["timelineable_id", 1999], ["timelineable_type", "Issue"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mIssue Exists (0.7ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."title" = 'Lawrence' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "issues" ("created_at", "description", "no_followers", "project_id", "tags", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["description", "go to work"], ["no_followers", 2], ["project_id", 1], ["tags", nil], ["title", "Lawrence"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "timelines" ("content", "created_at", "timelineable_id", "timelineable_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Issue created"], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["timelineable_id", 2000], ["timelineable_type", "Issue"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "issues" 
+Processing by IssuesController#destroy as HTML
+  Parameters: {"id"=>"1999"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1800 LIMIT 1[0m
+  [1m[35mIssue Load (0.6ms)[0m  SELECT "issues".* FROM "issues" WHERE "issues"."id" = $1 LIMIT 1  [["id", "1999"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM "issues" WHERE "issues"."id" = $1  [["id", 1999]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/issues
+Completed 302 Found in 5ms (ActiveRecord: 2.4ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "issues" 
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'julius_crona@johnsdooley.org' LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("authentication_token", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["authentication_token", nil], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "julius_crona@johnsdooley.org"], ["encrypted_password", "$2a$04$escLv1tfRGcuUzEvg6f4bOPwJHq0K0d0iXIyvk8Vj.FwCZKoFwYSm"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by IssuesController#create as HTML
+  Parameters: {"issue"=>{"title"=>"go to work", "description"=>"rohit bhore", "no_followers"=>"2"}}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1801 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."title" = 'go to work' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "issues" ("created_at", "description", "no_followers", "project_id", "tags", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["description", "rohit bhore"], ["no_followers", 2], ["project_id", 1], ["tags", nil], ["title", "go to work"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "timelines" ("content", "created_at", "timelineable_id", "timelineable_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Issue created"], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["timelineable_id", 2001], ["timelineable_type", "Issue"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/issues/2001
+Completed 302 Found in 11ms (ActiveRecord: 3.2ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'favian@kling.com' LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "users" ("authentication_token", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["authentication_token", nil], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "favian@kling.com"], ["encrypted_password", "$2a$04$.ycacXhy1CVk6RRk1wzfMeDLk4r0S51DxQX0HnCzVrAVpz5ZVUmBu"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "issues" [0m
+Processing by IssuesController#create as HTML
+  Parameters: {"issue"=>{"title"=>"go to work", "description"=>"rohit bhore", "no_followers"=>"2"}}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1802 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mIssue Exists (0.6ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."title" = 'go to work' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "issues" ("created_at", "description", "no_followers", "project_id", "tags", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["description", "rohit bhore"], ["no_followers", 2], ["project_id", 1], ["tags", nil], ["title", "go to work"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "timelines" ("content", "created_at", "timelineable_id", "timelineable_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Issue created"], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["timelineable_id", 2002], ["timelineable_type", "Issue"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/issues/2002
+Completed 302 Found in 10ms (ActiveRecord: 3.0ms)
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "issues" 
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'viva@oreilly.info' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("authentication_token", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["authentication_token", nil], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "viva@oreilly.info"], ["encrypted_password", "$2a$04$zEToL0hyGXIY1LzDeZeNzejjEhmkIq7gmJMX.88S0orQyzCg9V8Uy"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mIssue Exists (0.6ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."title" = 'go to work' LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "issues" ("created_at", "description", "no_followers", "project_id", "tags", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["description", "rohit bhore"], ["no_followers", 2], ["project_id", 1], ["tags", nil], ["title", "go to work"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "timelines" ("content", "created_at", "timelineable_id", "timelineable_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Issue created"], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["timelineable_id", 2003], ["timelineable_type", "Issue"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by IssuesController#edit as HTML
+  Parameters: {"id"=>"2003"}
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1803 LIMIT 1
+  [1m[36mIssue Load (0.7ms)[0m  [1mSELECT "issues".* FROM "issues" WHERE "issues"."id" = $1 LIMIT 1[0m  [["id", "2003"]]
+Completed 200 OK in 7ms (Views: 2.3ms | ActiveRecord: 2.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'zaria@lind.info' LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "users" ("authentication_token", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["authentication_token", nil], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "zaria@lind.info"], ["encrypted_password", "$2a$04$kGnnKKrkjwJLgGo4homKWeiOA4RpqAb.FIKAqgOEVsBNunvmFMoiO"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."title" = 'go to work' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "issues" ("created_at", "description", "no_followers", "project_id", "tags", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["description", "rohit bhore"], ["no_followers", 2], ["project_id", 1], ["tags", nil], ["title", "go to work"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "timelines" ("content", "created_at", "timelineable_id", "timelineable_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Issue created"], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["timelineable_id", 2004], ["timelineable_type", "Issue"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by IssuesController#edit as HTML
+  Parameters: {"id"=>"2004"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1804 LIMIT 1[0m
+  [1m[35mIssue Load (0.7ms)[0m  SELECT "issues".* FROM "issues" WHERE "issues"."id" = $1 LIMIT 1  [["id", "2004"]]
+Completed 200 OK in 6ms (Views: 1.7ms | ActiveRecord: 1.6ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'samson@wilderman.com' LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "users" ("authentication_token", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["authentication_token", nil], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "samson@wilderman.com"], ["encrypted_password", "$2a$04$lAvRNC.5e1T5hIEhQNO4yuMpBIon2I14v6I6cwuwPQubYnwiDpcsq"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mIssue Exists (0.5ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."title" = 'go to work' LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "issues" ("created_at", "description", "no_followers", "project_id", "tags", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["description", "rohit bhore"], ["no_followers", 2], ["project_id", 1], ["tags", nil], ["title", "go to work"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "timelines" ("content", "created_at", "timelineable_id", "timelineable_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Issue created"], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["timelineable_id", 2005], ["timelineable_type", "Issue"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by IssuesController#update as HTML
+  Parameters: {"issue"=>{"title"=>"go to work", "description"=>"rohit bhore", "no_followers"=>"2"}, "id"=>"2005"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1805 LIMIT 1
+  [1m[36mIssue Load (0.6ms)[0m  [1mSELECT "issues".* FROM "issues" WHERE "issues"."id" = $1 LIMIT 1[0m  [["id", "2005"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE ("issues"."title" = 'go to work' AND "issues"."id" != 2005) LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "timelines" ("content", "created_at", "timelineable_id", "timelineable_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Issue created"], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["timelineable_id", 2005], ["timelineable_type", "Issue"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/issues/2005
+Completed 302 Found in 15ms (ActiveRecord: 2.6ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'waino.beatty@veum.name' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("authentication_token", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["authentication_token", nil], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "waino.beatty@veum.name"], ["encrypted_password", "$2a$04$W6iPNvelaUAJ3j8IaYRuCuocpYrI2RAK5QmeR8J0uxBXl7TCT7Zz6"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."title" = 'go to work' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "issues" ("created_at", "description", "no_followers", "project_id", "tags", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["description", "rohit bhore"], ["no_followers", 2], ["project_id", 1], ["tags", nil], ["title", "go to work"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "timelines" ("content", "created_at", "timelineable_id", "timelineable_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Issue created"], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["timelineable_id", 2006], ["timelineable_type", "Issue"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by IssuesController#update as HTML
+  Parameters: {"issue"=>{"title"=>"Title", "description"=>"go to work", "no_followers"=>"2"}, "id"=>"2006"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1806 LIMIT 1[0m
+  [1m[35mIssue Load (0.2ms)[0m  SELECT "issues".* FROM "issues" WHERE "issues"."id" = $1 LIMIT 1  [["id", "2006"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mIssue Exists (0.3ms)[0m  SELECT 1 AS one FROM "issues" WHERE ("issues"."title" = 'Title' AND "issues"."id" != 2006) LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mUPDATE "issues" SET "title" = 'Title', "description" = 'go to work', "updated_at" = '2014-01-09 07:55:53.465148' WHERE "issues"."id" = 2006[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "timelines" ("content", "created_at", "timelineable_id", "timelineable_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Issue created"], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["timelineable_id", 2006], ["timelineable_type", "Issue"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/issues/2006
+Completed 302 Found in 9ms (ActiveRecord: 1.8ms)
+  [1m[35mIssue Load (0.2ms)[0m  SELECT "issues".* FROM "issues" WHERE "issues"."id" = $1 LIMIT 1  [["id", 2006]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'roosevelt_stiedemann@waelchi.net' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("authentication_token", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["authentication_token", nil], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "roosevelt_stiedemann@waelchi.net"], ["encrypted_password", "$2a$04$mBt6OPRMZ87eY0EbMFDu0eHQHnfyKCAMxNpUpgD3l0vywtsrsueyu"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mIssue Exists (0.2ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."title" = 'go to work' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "issues" ("created_at", "description", "no_followers", "project_id", "tags", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["description", "rohit bhore"], ["no_followers", 2], ["project_id", 1], ["tags", nil], ["title", "go to work"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "timelines" ("content", "created_at", "timelineable_id", "timelineable_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Issue created"], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["timelineable_id", 2007], ["timelineable_type", "Issue"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by IssuesController#update as HTML
+  Parameters: {"issue"=>{"title"=>"go to work", "description"=>"rohit bhore", "no_followers"=>"2"}, "id"=>"2007"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1807 LIMIT 1
+  [1m[36mIssue Load (0.2ms)[0m  [1mSELECT "issues".* FROM "issues" WHERE "issues"."id" = $1 LIMIT 1[0m  [["id", "2007"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE ("issues"."title" = 'go to work' AND "issues"."id" != 2007) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "timelines" ("content", "created_at", "timelineable_id", "timelineable_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Issue created"], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["timelineable_id", 2007], ["timelineable_type", "Issue"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/issues/2007
+Completed 302 Found in 6ms (ActiveRecord: 1.4ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'susana_marks@jacobson.name' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("authentication_token", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["authentication_token", nil], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "susana_marks@jacobson.name"], ["encrypted_password", "$2a$04$JGnZqQTMlzQfChQkXxYR5.2isZ1gQAH0bEBE0wMYF5/FQtK0mRqOu"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by IssuesController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1808 LIMIT 1
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'damian@farrell.org' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("authentication_token", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["authentication_token", nil], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "damian@farrell.org"], ["encrypted_password", "$2a$04$DTxNzwHESoeAJG20mDw47eUhTytSV8d9R0SyQUgp4F2u/SUfUHw1e"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by IssuesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1809 LIMIT 1[0m
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."title" = 'go to work' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "issues" ("created_at", "description", "no_followers", "project_id", "tags", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["description", "rohit bhore"], ["no_followers", 2], ["project_id", 1], ["tags", nil], ["title", "go to work"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "timelines" ("content", "created_at", "timelineable_id", "timelineable_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Issue created"], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["timelineable_id", 2008], ["timelineable_type", "Issue"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by IssuesController#show as HTML
+  Parameters: {"id"=>"2008"}
+  [1m[36mIssue Load (0.4ms)[0m  [1mSELECT "issues".* FROM "issues" WHERE "issues"."id" = $1 LIMIT 1[0m  [["id", "2008"]]
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."title" = 'go to work' LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "issues" ("created_at", "description", "no_followers", "project_id", "tags", "title", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["description", "rohit bhore"], ["no_followers", 2], ["project_id", 1], ["tags", nil], ["title", "go to work"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "timelines" ("content", "created_at", "timelineable_id", "timelineable_type", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Issue created"], ["created_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00], ["timelineable_id", 2009], ["timelineable_type", "Issue"], ["updated_at", Thu, 09 Jan 2014 07:55:53 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by IssuesController#show as HTML
+  Parameters: {"id"=>"2009"}
+  [1m[36mIssue Load (0.2ms)[0m  [1mSELECT "issues".* FROM "issues" WHERE "issues"."id" = $1 LIMIT 1[0m  [["id", "2009"]]
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
