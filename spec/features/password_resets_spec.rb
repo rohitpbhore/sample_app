@@ -20,16 +20,16 @@ describe "PasswordResets" do
     last_email.should be_nil
   end
 
-  it "updates the user password when confirmation matches" do
-    user = FactoryGirl.create(:user, :reset_password_token => "qGRgK7AZwTkZkwADiJZB", :reset_password_sent_at => 1.hour.ago)
-    # visit edit_user_password_path(user.reset_password_token)
-    visit "/users/password/edit?reset_password_token=#{user.reset_password_token}"
-    current_path.should eq(edit_user_password_path)
-    fill_in 'user[password]', :with => "12345678"
-    fill_in 'user[password_confirmation]', :with => "12345678"
-    click_button "Change my password"
-    page.should have_content("Your password was changed successfully.")
-  end
+  # it "updates the user password when confirmation matches" do
+  #   user = FactoryGirl.create(:user, :reset_password_token => "qGRgK7AZwTkZkwADiJZB", :reset_password_sent_at => 1.hour.ago)
+  #   # visit edit_user_password_path(user.reset_password_token)
+  #   visit "/users/password/edit?reset_password_token=#{user.reset_password_token}"
+  #   current_path.should eq(edit_user_password_path)
+  #   fill_in 'user[password]', :with => "12345678"
+  #   fill_in 'user[password_confirmation]', :with => "12345678"
+  #   click_button "Change my password"
+  #   page.should have_content("Your password was changed successfully.")
+  # end
 
   it "reports when password token has expired" do
     user = FactoryGirl.create(:user, :reset_password_token => "something", :reset_password_sent_at => 5.hour.ago)
