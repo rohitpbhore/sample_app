@@ -8,6 +8,7 @@ class Issue < ActiveRecord::Base
   validates_with Yesnovalidator
 
   belongs_to :project
+  has_many :comments, dependent: :destroy
 
   after_save :add_to_timeline
   # before_save :strip_spaces_from_tag

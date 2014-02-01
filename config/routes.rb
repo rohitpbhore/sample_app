@@ -15,7 +15,11 @@ NewIssues::Application.routes.draw do
     #   end
     # end
 
-    resources :issues 
+    # resources :issues
+
+    resources :issues do
+      resources :comments
+    end
 
     post 'search', to: 'issues#search', :as => :search
     # match 'match', to: 'issues#match'

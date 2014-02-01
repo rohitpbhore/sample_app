@@ -16,5 +16,14 @@
 </p>
 
 
+
+<h2>Comments</h2>
+<%= render @issue.comments %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
+
+
+
 <%= link_to 'Edit', edit_issue_path(@issue) %> |
 <%= link_to 'Back', issues_path %>
