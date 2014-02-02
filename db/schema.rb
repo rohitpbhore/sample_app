@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131210163905) do
+ActiveRecord::Schema.define(:version => 20140201063747) do
+
+  create_table "comments", :force => true do |t|
+    t.string   "commenter"
+    t.text     "body"
+    t.integer  "issue_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["issue_id"], :name => "index_comments_on_issue_id"
 
   create_table "issues", :force => true do |t|
     t.string   "title"
@@ -44,7 +54,8 @@ ActiveRecord::Schema.define(:version => 20131210163905) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "token_authenticatable"
+    t.string   "authentication_token"
+    t.string   "auto_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
