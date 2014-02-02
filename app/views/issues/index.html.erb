@@ -16,9 +16,9 @@
   <tbody>
     <% @issues.each do |issue| %>
     <tr>
-      <li id="issue_<%= issue.id %>">
-        <td style="width:25%"><%= issue.title %></td>
-        <td style="width:30%"><%= issue.description %></td>
+      <li id="issue_<%= issue.id %>" class="row">
+        <td  class="span5"><%= issue.title %></td>
+        <td  class="span5"><%= issue.description %></td>
         <td><%= issue.no_followers %></td>
         <td>
           <%= link_to 'Show', issue, class: 'btn btn-mini' %>
