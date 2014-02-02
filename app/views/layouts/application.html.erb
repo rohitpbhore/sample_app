@@ -5,35 +5,67 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body style="width:35%;margin:auto;background-color: #eee;height:auto;display:block;padding:10px">
+<body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <a class="btn btn-navbar " data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+      <!-- Be sure to leave the brand out there if you want it shown -->
+        <a class="brand" href="#">Sample Application</a>
 
-<div id="container" style="color:red!important;margin-bottom:20px;">
-  <div id="user_nav">
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Login", new_user_session_path %>
-    <% end %>
+        <div id="user_nav" style="color:red!important;margin-top:10px;float: right;">
+        <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.email %></strong>.
+          <%= link_to 'Edit profile', edit_user_registration_path %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path %> |
+          <%= link_to "Login", new_user_session_path %>
+        <% end %>
+      </div>
+
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, id: "flash_#{name}" %>
+      <% end %>
+      <!-- Everything you want hidden at 940px or less, place within here -->
+        <div class="nav-collapse collapse">
+          <div class="btn-navbar pull-left">
+            <ul class="nav">
+              <li>Home</li>
+              <li>About</li>
+              <li>Company</li>
+              <li>Contact Us</li>
+            </ul>
+          </div>
+        <!-- .nav, .navbar-search, .navbar-form, etc -->
+        </div>
+      </div>
+    </div>
   </div>
 
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, id: "flash_#{name}" %>
-  <% end %>
-<!-- <%= yield %> -->
-
-
-</div>
-
-<ul>
-	<li><a href="/timeline/index">Timeline</a></li>
-	<li><a href="/issues">Issues</a></li>
-	<li><a href="/issues/new">New Issue</a></li>
-	<li><%= yield :nav %></li>
-</ul>
-  <%= yield %>
+  <div class="container">
+    <div class="row" style="margin-top:50px;">
+      <div class="span12">
+        <ul>
+          <li style="display: inline-block;"><a class='btn btn-primary',  href="/timeline/index">Timeline</a></li>
+          <li style="display: inline-block;"><a class='btn btn-primary', href="/issues">Issues</a></li>
+          <li style="display: inline-block;"><a class='btn btn-primary', href="/issues/new">New Issue</a></li>
+          <li><%= yield :nav %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span12">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

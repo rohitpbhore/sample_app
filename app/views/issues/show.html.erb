@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<div class="page-header">
+  <h1>Issue</h1>
+</div>
+
 <p>
   <b>Title:</b>
   <%= @issue.title %>
@@ -15,8 +19,6 @@
   <%= @issue.no_followers %>
 </p>
 
-
-
 <h2>Comments</h2>
 <%= render @issue.comments %>
 
@@ -24,6 +26,7 @@
 <%= render "comments/form" %>
 
 
-
-<%= link_to 'Edit', edit_issue_path(@issue) %> |
-<%= link_to 'Back', issues_path %>
+<div class="form-actions">
+  <%= link_to 'Edit', edit_issue_path(@issue), class: 'btn' %> |
+  <%= link_to 'Back', issues_path, class: 'btn' %>
+</div>
