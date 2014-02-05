@@ -21,7 +21,7 @@ describe "issues" do
 
     it "creates a new issue" do
       visit issues_path
-      click_link 'New Issue'
+      visit new_issue_path
 
     	fill_in 'issue[title]', :with => 'go to bed'
       fill_in 'issue[description]', :with => 'go to work'
