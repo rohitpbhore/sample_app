@@ -44,5 +44,5 @@ production:
   encoding: unicode
   database: rohitblog
   pool: 100
-  username: postgres
-  password: macro129
+  username: rohitpbhore
+  password:
