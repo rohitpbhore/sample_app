@@ -2,12 +2,19 @@
 
 ### Terminologies Used
 
-> Action Mailer
-> Devise
-> Twitter bootstrap
-> Rspec
-> Sass
-> Less
-> Active Record Associations
-> Asset Pipeline
+#### Action Mailer
+
+#### Devise
+
+#### Twitter bootstrap
+
+#### Rspec(Behavior Driven Development)
+
+#### Sass
+
+#### Less
+
+#### Active Record Associations
+
+#### Asset Pipeline
 
