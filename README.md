@@ -2,19 +2,23 @@
 
 ### Terminologies Used
 
-#### Action Mailer
+##### Action Mailer
 
-#### Devise
+##### Devise
 
-#### Twitter bootstrap
+##### Twitter bootstrap
 
-#### Rspec(Behavior Driven Development)
+##### Rspec(Behavior Driven Development)
 
-#### Sass
+##### Sass
 
-#### Less
+##### Less
 
-#### Active Record Associations
+##### Active Record Associations
 
-#### Asset Pipeline
+##### Asset Pipeline
 
+
+[Click here] to visit Application
+
+[Click here]:http://rohitblog.herokuapp.com/
