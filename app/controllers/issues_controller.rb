@@ -41,20 +41,9 @@ class IssuesController < ApplicationController
   end
 
   def search
-    # redirect_to search_path
     @issue = Issue.find_by_title(params[:search_con])
-
-    if Issue.find_by_title(params[:search_con])
-      redirect_to @issue
-    end
+    redirect_to @issue if @issue.present?
   end
-
-  # def found
-  #   if Issue.find(1)
-  #     format.html { redirect_to @issue, notice: 'Issue Found.' }
-  #   end
-  # end
-
 
   # POST /issues
   # POST /issues.json
@@ -99,9 +88,5 @@ class IssuesController < ApplicationController
       format.html { redirect_to issues_url }
       format.json { head :no_content }
     end
-  end
-
-  # /issues/:issue_id/search(.:format)
-  def match
   end
 end
