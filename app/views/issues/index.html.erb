@@ -17,7 +17,7 @@
     <% @issues.each do |issue| %>
     <tr>
       <li id="issue_<%= issue.id %>" class="row">
-        <td  class="span5"><%= issue.title %></td>
+        <td  class="span5"><%= issue.title %> <%= link_to "(#{issue.comments.count})", issue %></td>
         <td  class="span5"><%= issue.description %></td>
         <td><%= issue.no_followers %></td>
         <td>
