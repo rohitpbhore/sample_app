@@ -2,9 +2,13 @@
 
 ### Terminologies Used
 
-##### Action Mailer
+##### Active Record Associations
 
-##### Devise
+##### Active Record Validations
+
+##### Asset Pipeline
+
+##### Action Mailer
 
 ##### Twitter bootstrap
 
@@ -14,9 +18,7 @@
 
 ##### Less
 
-##### Active Record Associations
-
-##### Asset Pipeline
+##### Devise
 
 
 [Click here] to visit Application
