@@ -5,9 +5,9 @@ describe "issues" do
     # sign_in
     visit issues_path
     click_link 'Sign up'
-    fill_in 'user[email]', :with => 'example@gg.com'
-    fill_in 'user[password]', :with => '12345678'
-    fill_in 'user[password_confirmation]', :with => '12345678'
+    fill_in 'user[email]', with: 'example@gg.com'
+    fill_in 'user[password]', with: '12345678'
+    fill_in 'user[password_confirmation]', with: '12345678'
     click_button 'Sign up'
     page.should have_content 'Welcome! You have signed up successfully.'
     @issue = FactoryGirl.create(:issue)
@@ -23,9 +23,9 @@ describe "issues" do
       visit issues_path
       visit new_issue_path
 
-    	fill_in 'issue[title]', :with => 'go to bed'
-      fill_in 'issue[description]', :with => 'go to work'
-      fill_in 'issue[no_followers]', :with => 3
+    	fill_in 'issue[title]', with: 'go to bed'
+      fill_in 'issue[description]', with: 'go to work'
+      fill_in 'issue[no_followers]', with: 3
 
     	click_button 'Create Issue'
 
@@ -45,7 +45,7 @@ describe "issues" do
 
   		find_field('issue[title]').value.should == 'go to work'
 
-  		fill_in 'issue[title]', :with => 'updated Issue'
+  		fill_in 'issue[title]', with: 'updated Issue'
   		click_button 'Update Issue'
 
 
@@ -58,7 +58,7 @@ describe "issues" do
   		visit issues_path
   		click_link 'Edit'
 
-  		fill_in 'issue[title]', :with => ''
+  		fill_in 'issue[title]', with: ''
   		click_button 'Update Issue'
       path = current_path + '/edit'
   		path.should  == edit_issue_path(@issue)

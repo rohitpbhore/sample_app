@@ -4,7 +4,7 @@ describe "PasswordResets" do
     user = FactoryGirl.create(:user)
     visit new_user_session_path
     click_link 'Forgot your password?'
-    fill_in "Email", :with => user.email
+    fill_in "Email", with: user.email
     click_button "Send me reset password instructions"
     current_path.should eq(new_user_session_path)
     page.should have_content("You will receive an email with instructions about how to reset your password in a few minutes.")
@@ -14,7 +14,7 @@ describe "PasswordResets" do
   it "does not email invalid user when requesting password reset" do
     visit new_user_session_path
     click_link 'Forgot your password?'
-    fill_in "Email", :with => "nobody@example.com"
+    fill_in "Email", with: "nobody@example.com"
     click_button "Send me reset password instructions"
     page.should have_content("Email not found")
     last_email.should be_nil
@@ -32,11 +32,11 @@ describe "PasswordResets" do
   # end
 
   it "reports when password token has expired" do
-    user = FactoryGirl.create(:user, :reset_password_token => "something", :reset_password_sent_at => 5.hour.ago)
+    user = FactoryGirl.create(:user, reset_password_token: "something", reset_password_sent_at: 5.hour.ago)
     # visit edit_user_password_path(user.reset_password_token)
     visit "/users/password/edit?reset_password_token=#{user.reset_password_token}"
-    fill_in "user[password]", :with => "12345678"
-    fill_in 'user[password_confirmation]', :with => "12345678"
+    fill_in "user[password]", with: "12345678"
+    fill_in 'user[password_confirmation]', with: "12345678"
     click_button "Change my password"
     page.should have_content("Reset password token is invalid")
   end

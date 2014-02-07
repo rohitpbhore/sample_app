@@ -22,7 +22,7 @@
         <td><%= issue.no_followers %></td>
         <td>
           <%= link_to 'Show', issue, class: 'btn btn-mini' %>
-          <%= link_to 'Edit', edit_issue_path(issue), :class => 'btn btn-mini' %>
+          <%= link_to 'Edit', edit_issue_path(issue), class: 'btn btn-mini' %>
           <%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
         </td>
       </li>

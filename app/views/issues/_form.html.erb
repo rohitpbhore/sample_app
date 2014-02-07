@@ -1,7 +1,7 @@
 <div class="form-horizontal">
   <%= form_for(@issue) do |f| %>
     <% if @issue.errors.any? %>
-      <div id="error_explanation">
+      <div id="error_explanation" class="alert alert-error">
         <h2><%= pluralize(@issue.errors.count, "error") %> prohibited this issue from being saved:</h2>
 
         <ul>

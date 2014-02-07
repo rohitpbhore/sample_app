@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.16'
 # gem 'sqlite3'
 gem 'pg'
 
 gem 'devise'
 gem "gretel"
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'jquery-rails'
 gem "paper_trail"
 gem "less-rails-bootstrap", "~> 2.3.3"
@@ -16,7 +16,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer', platforms: :ruby
   gem 'execjs'
 end
 
@@ -37,8 +37,8 @@ group :test do
   # For mac OS Only
   # gem 'growl_notify'
   gem 'email_spec'
-  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'rb-fsevent', require: false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard-livereload'
 end
 
-ruby '1.9.3'
+ruby '2.0.0'
