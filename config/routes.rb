@@ -24,6 +24,7 @@ NewIssues::Application.routes.draw do
     post 'search', to: 'issues#search', as: :search
     # match 'match', to: 'issues#match'
 
+    resources :users, only: [ :show ]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
