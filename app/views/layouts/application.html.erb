@@ -26,8 +26,9 @@
           Logged in as <strong><%= current_user.email %></strong>.
 
           <%= link_to 'Profile', user_path(current_user.id), method: :get %> |
-          <%= link_to 'Edit profile', edit_user_registration_path %> |
-          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %> |
+          <%= image_tag current_user.avatar.url(:small), style: "height: 31px;" %>
         <% else %>
           <%= link_to "Sign up", new_user_registration_path %> |
           <%= link_to "Login", new_user_session_path %>
