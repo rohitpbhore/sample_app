@@ -9,8 +9,6 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, styles: { large: '500*500>', medium: '300*300>', small: '40*40>' }, url: "avatar/:style/:basename.:extension", path: "#{Rails.root}/app/assets/images/avatar/:style/:basename.:extension"
 
-  validates_attachment :avatar, content_type: { content_type: ['image/jpeg','image/png'] }, size: { in: 0..5.megabytes }
-  validates_attachment_size :avatar, less_than: 5.megabytes
   validates_attachment_presence :avatar
-
+  validates_attachment :avatar, content_type: { content_type: ['image/jpeg','image/png'] }, size: { in: 0..5.megabytes }
 end
