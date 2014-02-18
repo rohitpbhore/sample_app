@@ -26,6 +26,10 @@
       <%= @issue.no_followers %>
     </p>
 
+    <div id="like">
+      <%= render 'likes/like_button', :issue => @issue %>
+    </div>
+
     <h2>Comments</h2>
     <%= render @issue.comments %>
 

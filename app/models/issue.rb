@@ -13,6 +13,8 @@ class Issue < ActiveRecord::Base
   after_save :add_to_timeline
   # before_save :strip_spaces_from_tag
 
+  has_many :likes
+
   private
   def add_to_timeline
   	Timeline.create!({content: "Issue created", timelineable_id: id, timelineable_type: self.class.to_s })

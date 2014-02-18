@@ -21,6 +21,8 @@ NewIssues::Application.routes.draw do
       resources :comments
     end
 
+    resources :likes, :only => [:create, :destroy]
+
     post 'search', to: 'issues#search', as: :search
     # match 'match', to: 'issues#match'
 

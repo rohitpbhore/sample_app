@@ -6,4 +6,10 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  has_many :likes
+
+  def has_like? issue
+    likes.find_by_issue_id issue.id
+  end
 end
