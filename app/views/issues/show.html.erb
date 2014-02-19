@@ -33,13 +33,20 @@
     <% end %>
 
     <h2>Comments</h2>
-    <div id="comments">
-      <%= render @issue.comments %>
+    <div>
+      <table class="table table-striped">
+        <thead>
+          <tr class="row">
+            <th class="span5">Commenter</th>
+            <th class="span6">Comment</th>
+          </tr>
+        </thead>
+        <tbody id="comments">
+          <%= render @issue.comments %>
+        </tbody>
+      </table>
     </div>
-
     <h2>Add a comment:</h2>
     <%= render "comments/form" %>
   </div>
 </div>
-
-
