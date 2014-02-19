@@ -13,10 +13,10 @@
       <th></th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="issues">
     <% @issues.each do |issue| %>
-    <tr>
-      <li id="issue_<%= issue.id %>" class="row">
+    <tr id="issue_<%= issue.id %>">
+      <li class="row">
         <td  class="span4"><%= issue.title %></td>
         <td style="text-align:center"><%= "#{issue.likes.count}" %></td>
         <td style="text-align:center"><%= link_to "#{issue.comments.count}", issue %></td>

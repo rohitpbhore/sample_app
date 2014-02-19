@@ -12,6 +12,9 @@ class CommentsController < ApplicationController
     @issue = Issue.find(params[:issue_id])
     @comment = @issue.comments.find(params[:id])
     @comment.destroy
-    redirect_to issue_path(@issue)
+    respond_to do |format|
+      format.html { redirect_to issue_path(@issue) }
+      format.js
+    end
   end
 end
