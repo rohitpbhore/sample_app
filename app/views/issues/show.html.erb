@@ -33,7 +33,9 @@
     <% end %>
 
     <h2>Comments</h2>
-    <%= render @issue.comments %>
+    <div id="comments">
+      <%= render @issue.comments %>
+    </div>
 
     <h2>Add a comment:</h2>
     <%= render "comments/form" %>

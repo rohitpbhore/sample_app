@@ -1,5 +1,5 @@
 <div class="form-horizontal">
-  <%= form_for([@issue, @issue.comments.build]), :remote=> true) do |f| %>
+  <%= form_for([@issue, @issue.comments.build], :remote=> true) do |f| %>
     <div class="control-group">
       <%= f.label :commenter, class: "control-label" %><br />
       <%= f.text_field :commenter, class: "controls", style: "width: 266px;" %>

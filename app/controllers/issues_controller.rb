@@ -17,7 +17,12 @@ class IssuesController < ApplicationController
   # GET /issues/1
   # GET /issues/1.json
   def show
-    @issue = Issue.find(params[:id])
+    begin
+      @issue = Issue.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      Rails.logger.warn { "Not found" }
+      nil
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -86,7 +91,7 @@ class IssuesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to issues_url }
-      format.json { head :no_content }
+      format.js
     end
   end
 end
