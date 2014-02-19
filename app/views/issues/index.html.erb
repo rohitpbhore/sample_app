@@ -6,10 +6,10 @@
   <thead>
     <tr>
       <th>Title <%=link_to "Sort", issues_path(sort: "title"), class: "btn btn-mini" %></th>
+      <th>Likes</th>
+      <th>Comments</th>
       <th>Description <%=link_to "Sort", issues_path(sort: "description"), class: "btn btn-mini" %> </th>
       <th>No followers <%=link_to "Sort", issues_path(sort: "no_followers"), class: "btn btn-mini" %> </th>
-      <th></th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -17,9 +17,11 @@
     <% @issues.each do |issue| %>
     <tr>
       <li id="issue_<%= issue.id %>" class="row">
-        <td  class="span5"><%= issue.title %> <%= link_to "(#{issue.comments.count})", issue %></td>
-        <td  class="span5"><%= issue.description %></td>
-        <td><%= issue.no_followers %></td>
+        <td  class="span4"><%= issue.title %></td>
+        <td style="text-align:center"><%= "#{issue.likes.count}" %></td>
+        <td style="text-align:center"><%= link_to "#{issue.comments.count}", issue %></td>
+        <td class="span5"><%= issue.description %></td>
+        <td style="text-align:center"><%= issue.no_followers %></td>
         <td>
           <%= link_to 'Show', issue, class: 'btn btn-mini' %>
           <%= link_to 'Edit', edit_issue_path(issue), class: 'btn btn-mini' %>
