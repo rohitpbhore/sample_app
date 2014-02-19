@@ -2,7 +2,10 @@ class CommentsController < ApplicationController
   def create
     @issue = Issue.find(params[:issue_id])
     @comment = @issue.comments.create(params[:comment])
-    redirect_to issue_path(@issue)
+    respond_to do |format|
+      format.html { redirect_to issue_path(@issue) }
+      format.js
+    end
   end
 
   def destroy
