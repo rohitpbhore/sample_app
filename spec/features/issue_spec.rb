@@ -27,11 +27,11 @@ describe "issues" do
       fill_in 'issue[description]', with: 'go to work'
       fill_in 'issue[no_followers]', with: 3
 
-    	click_button 'Create Issue'
+    	click_button 'Submit'
 
       # current_path.should == issue_path
     	page.should have_content 'go to work'
-      page.should have_content 'Issue was successfully created.'
+      page.should have_content 'Post was successfully created.'
     	# save_and_open_page
     end
   end
@@ -46,11 +46,11 @@ describe "issues" do
   		find_field('issue[title]').value.should == 'go to work'
 
   		fill_in 'issue[title]', with: 'updated Issue'
-  		click_button 'Update Issue'
+  		click_button 'Submit'
 
 
   		page.should have_content 'updated Issue'
-      page.should have_content 'Issue was successfully updated.'
+      page.should have_content 'Post was successfully updated.'
       # current_path.should == issue_path
   	end
 
@@ -59,7 +59,7 @@ describe "issues" do
   		click_link 'Edit'
 
   		fill_in 'issue[title]', with: ''
-  		click_button 'Update Issue'
+  		click_button 'Submit'
       path = current_path + '/edit'
   		path.should  == edit_issue_path(@issue)
   		page.should have_content "Title can't be blank"

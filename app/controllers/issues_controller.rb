@@ -58,7 +58,7 @@ class IssuesController < ApplicationController
     respond_to do |format|
       if @issue.save
         # IssueMailer.issue_created(@issue).deliver
-        format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
+        format.html { redirect_to @issue, notice: 'Post was successfully created.' }
         format.json { render json: @issue, status: :created, location: @issue }
       else
         format.html { render action: "new" }
@@ -74,7 +74,7 @@ class IssuesController < ApplicationController
 
     respond_to do |format|
       if @issue.update_attributes(params[:issue])
-        format.html { redirect_to @issue, notice: 'Issue was successfully updated.' }
+        format.html { redirect_to @issue, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

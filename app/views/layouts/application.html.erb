@@ -21,7 +21,7 @@
         </a>
       <!-- Be sure to leave the brand out there if you want it shown -->
 
-        <div id="user_nav" style="color:#c09853!important;margin-top:10px;float: right;">
+        <div id="user_nav" style="margin-top:10px;float: right;">
         <% if user_signed_in? %>
           Logged in as <strong><%= current_user.email %></strong>.
           <%= link_to 'Edit profile', edit_user_registration_path %> |
