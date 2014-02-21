@@ -2,7 +2,7 @@
   <h1>Posts</h1>
 </div>
 
-<table class="table table-striped">
+<table class="table table-striped" id="issues">
   <thead>
     <tr>
       <th>Title <%=link_to "Sort", issues_path(sort: "title"), class: "btn btn-mini" %></th>
@@ -20,7 +20,7 @@
         <td  class="span4"><%= issue.title %></td>
         <td style="text-align:center"><%= "#{issue.likes.count}" %></td>
         <td style="text-align:center"><%= link_to "#{issue.comments.count}", issue %></td>
-        <td class="span5"><%= issue.description %></td>
+        <td class="span4"><%= issue.description %></td>
         <td style="text-align:center"><%= issue.no_followers %></td>
         <td>
           <%= link_to 'Show', issue, class: 'btn btn-mini' %>

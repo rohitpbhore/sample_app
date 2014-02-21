@@ -18,6 +18,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'therubyracer', platforms: :ruby
   gem 'execjs'
+  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+  gem 'jquery-ui-rails'
 end
 
 group :development, :test do
