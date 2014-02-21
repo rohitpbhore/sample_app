@@ -4,7 +4,6 @@ class IssuesController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show, :search]
   def index
     @issues = Issue
-    @issues = Issue.order(params[:sort]) if params[:sort]
     @issues = @issues.all
 
     respond_to do |format|
