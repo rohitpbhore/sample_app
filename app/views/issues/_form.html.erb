@@ -1,16 +1,16 @@
 <div class="form-horizontal">
   <%= simple_form_for(@issue) do |f| %>
     <div class="control-group">
-      <%= f.input :title, style: "width: 266px;" %>
+      <%= f.input :title, style: "width: 300px;" %>
     </div>
     <div class="control-group">
-      <%= f.input :description, style: "width: 266px;", rows: "10" %>
+      <%= f.input :description, input_html: { style: "width: 300px;", rows: "10" } %>
     </div>
     <div class="control-group">
-      <%= f.input :no_followers, style: "width: 266px;", rows: "10" %>
+      <%= f.input :no_followers, input_html: { style: "width: 300px;", rows: "10" } %>
     </div>
     <div class="form-actions">
-      <%= f.button :submit, class: 'btn' %>
+      <%= f.button :submit, input_html: {  class: 'btn' } %>
     </div>
   <% end %>
 </div>
