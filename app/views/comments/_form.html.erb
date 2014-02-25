@@ -1,13 +1,11 @@
 <div class="form-horizontal">
   <%= simple_form_for([@issue, @issue.comments.build], :remote=> true) do |f| %>
     <div class="control-group">
-      <%= f.input :commenter, input_html: {  class: "controls", style: "width: 300px;" } %>
-    </div>
-    <div class="control-group">
-      <%= f.input :body, input_html: {  class: "controls", style: "width: 300px;", rows: "10" } %>
+      <%= f.input :body, input_html: {  class: "controls", style: "width: 500px;", rows: "10" } %>
     </div>
     <div class="form-actions">
       <%= f.button :submit, input_html: { class: 'btn' } %>
     </div>
+    <%= f.input :user_id, :as => :hidden, input_html: {  value: "#{current_user.id}" } %>
   <% end %>
 </div>

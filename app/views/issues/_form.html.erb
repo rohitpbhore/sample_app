@@ -1,7 +1,7 @@
 <div class="form-horizontal">
   <%= simple_form_for(@issue) do |f| %>
     <div class="control-group">
-      <%= f.input :title, style: "width: 300px;" %>
+      <%= f.input :title, input_html: { style: "width: 300px;" } %>
     </div>
     <div class="control-group">
       <%= f.input :description, input_html: { style: "width: 300px;", rows: "10" } %>
