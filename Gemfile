@@ -13,6 +13,7 @@ gem "less-rails-bootstrap", "~> 2.3.3"
 gem 'rails_12factor', group: :production
 gem 'jbuilder'
 gem 'simple_form'
+gem 'will_paginate', '~> 3.0'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
