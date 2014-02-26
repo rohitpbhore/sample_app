@@ -16,3 +16,4 @@ coverage
 vendor/bundle
 .bundle
 .DS_Store
+log/development.log
