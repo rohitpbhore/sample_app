@@ -10,6 +10,6 @@
              method: :delete, remote: true,
              data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %></td>
   <%- else %>
-    <td class="span1"><%= link_to 'Destroy', [comment.issue, comment], remote: true, data: { confirm: 'You can not delete this'  }, class: 'btn btn-mini btn-danger' %></td>
+    <td class="span1"><%= link_to 'Destroy', [comment.issue, comment], remote: true, data: { confirm: 'Sorry. Author can only delete comment.'  }, class: 'btn btn-mini btn-danger' %></td>
   <%- end %>
 </tr>
