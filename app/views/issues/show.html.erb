@@ -1,4 +1,4 @@
-<div class="row" style="margin-top:20px;">
+<div class="row">
   <!-- <p id="notice"><%= notice %></p> -->
 
   <div class="span2">
@@ -46,7 +46,9 @@
         </tbody>
       </table>
     </div>
-    <h2>Add a comment:</h2>
-    <%= render "comments/form" %>
+    <%- if current_user.present? %>
+      <h2>Add a comment:</h2>
+      <%= render "comments/form" %>
+    <%- end %>
   </div>
 </div>
