@@ -48,10 +48,11 @@
   </div>
 
   <div class="container">
-
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, id: "flash_#{name}" %>
-    <% end %>
+    <div style='position: fixed;top: 51px;'>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, id: "flash_#{name}" %>
+      <% end %>
+    </div>
 
     <!-- <div class="row" style="margin-top:50px;">
       <div class="span12">
