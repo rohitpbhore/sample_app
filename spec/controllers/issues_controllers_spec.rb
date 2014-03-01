@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe IssuesController do
-  let(:issue) do
-    FactoryGirl.create(:issue, title: 'Lawrence', description: 'go to work')
-  end
+  let(:issue) { FactoryGirl.create(:issue) }
 
   describe 'GET #show' do
     it "assigns the requested issue to @issue" do
@@ -35,7 +33,6 @@ describe IssuesController do
   end
 
   describe "administrator access" do
-
     before do
       login_user
     end
@@ -114,7 +111,7 @@ describe IssuesController do
 
       # context "with invalid attributes" do
       #   it "does not change the issue's attributes" do
-      #     put :update, id: @issue,issue: FactoryGirl.attributes_for(:issue, title: nil, description: 'go to work', no_followers: 2)
+      #     put :update, id: @issue,issue: FactoryGirl.attributes_for(:issue, title: nil, description: 'go to work')
       #     # @issue = FactoryGirl.build(:issue,description: nil, no_followers: nil)
       #     @issue.reload
       #     expect(@issue.title).to eq("go to work")
@@ -122,7 +119,7 @@ describe IssuesController do
       #   end
 
       #   it "re-renders the edit template" do
-      #     put :update, id: @issue,issue: FactoryGirl.attributes_for(:issue, title: nil, description: 'go to work', no_followers: 2)
+      #     put :update, id: @issue,issue: FactoryGirl.attributes_for(:issue, title: nil, description: 'go to work')
       #     expect(response).to render_template :edit
       #   end
       # end
@@ -160,5 +157,4 @@ describe IssuesController do
       expect(response).to render_template :search
     end
   end
-
 end
