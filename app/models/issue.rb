@@ -2,7 +2,6 @@ class Issue < ActiveRecord::Base
   attr_accessible :description, :title#, :no_followers,
   validates_presence_of :title, message: "Title can't be blank"
   validates_length_of :description, minimum: 5, message: "Description is too short (minimum is 5 characters)"
-  validates_uniqueness_of :title, message: "Title should be unique"
   # validates_numericality_of :no_followers, allow_blank: false
 
   validates_with Yesnovalidator

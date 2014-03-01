@@ -26,6 +26,11 @@
       <%= @issue.likes.count %>
     </p>
 
+    <p>
+      <b>No Comments:</b>
+      <%= @issue.comments.count %>
+    </p>
+
     <%- if current_user.present? %>
       <div id="like">
         <%= render 'likes/like_button', :issue => @issue %>
