@@ -32,6 +32,10 @@
         <% end %>
       </div>
 
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, id: "flash_#{name}" %>
+      <% end %>
+
       <!-- Everything you want hidden at 940px or less, place within here -->
         <div class="nav-collapse collapse">
           <div class="btn-navbar pull-left">
@@ -48,12 +52,6 @@
   </div>
 
   <div class="container">
-    <div style='style="margin-top:50px;'>
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, id: "flash_#{name}" %>
-      <% end %>
-    </div>
-
     <!-- <div class="row" style="margin-top:50px;">
       <div class="span12">
         <ul>

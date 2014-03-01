@@ -26,14 +26,15 @@
       <%= @issue.no_followers %>
     </p>
 
-    <% if current_user.present? %>
+    <%- if current_user.present? %>
       <div id="like">
         <%= render 'likes/like_button', :issue => @issue %>
       </div>
-    <% end %>
+    <%- end %>
 
     <h2>Comments</h2>
-    <div>
+
+    <%- if current_user.present? %>
       <table class="table table-striped">
         <thead>
           <tr class="row">
@@ -45,10 +46,10 @@
           <%= render @issue.comments %>
         </tbody>
       </table>
-    </div>
-    <%- if current_user.present? %>
       <h2>Add a comment:</h2>
       <%= render "comments/form" %>
+    <%- else %>
+      <h4><%= link_to "Login...,", new_user_session_path %> to follow and comment for this post.</h4>
     <%- end %>
   </div>
 </div>
