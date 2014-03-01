@@ -2,8 +2,6 @@ FactoryGirl.define do
 	factory :issue do
     sequence(:title) { |n| "title#{n}" }
     sequence(:description) { |n| "description#{n}" }
-    # title 'title'
-    # description 'description'
 	end
 
   factory :invalid_issue do
@@ -23,7 +21,7 @@ FactoryGirl.define do
   end
 
   factory :user do
-    username 'username'
+    sequence(:username) { |n| "username#{n}" }
     email { Faker::Internet.email }
     password 'password'
     password_confirmation 'password'

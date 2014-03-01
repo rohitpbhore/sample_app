@@ -78,7 +78,7 @@ describe "posts" do
     end
 
     it "DESTROY /commnet" do
-      # @comment = FactoryGirl.create(:comment, issue: @issue1, user: @user)
+      @comment = FactoryGirl.create(:comment, issue: @issue1, user: @user)
       visit issue_path "#{@issue1.id}"
       find("#comment_#{@comment.id}").click_link 'Destroy'
       page.should have_no_content @comment.body
