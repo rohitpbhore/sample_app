@@ -19,7 +19,7 @@ describe Issue do
 	# 		it "does not allow duplicate title" do
 	# 			issue_new = Issue.new(title: 'title',description: nil, no_followers: nil)
 	# 			expect(issue_new).to have(1).errors_on(:title)
-	# 		end		
+	# 		end
 	# 	end
 	# end
 
@@ -29,18 +29,18 @@ describe Issue do
 	end
 
 	it "is invalid without description" do
-		issue = FactoryGirl.build(:issue,description: nil, no_followers: nil)
+		issue = FactoryGirl.build(:issue,description: nil)
 		expect(issue).to have(1).errors_on(:description)
 	end
 
-	it "is valid with a title, description and no_followers" do
+	it "is valid with a title, description" do
 		expect(FactoryGirl.build(:issue)).to be_valid
 	end
 
 	it "does not allow duplicate title" do
 		# FactoryGirl.create(:issue)
-		Issue.create(title: 'title',description: 'rohit bhore', no_followers: 2)
-		issue_new = Issue.new(title: 'title',description: nil, no_followers: nil)
+		Issue.create(title: 'title',description: 'rohit bhore')
+		issue_new = Issue.new(title: 'title',description: nil)
 		expect(issue_new).to have(1).errors_on(:title)
 	end
 end

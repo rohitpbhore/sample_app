@@ -23,7 +23,7 @@
 
     <p>
       <b>No followers:</b>
-      <%= @issue.no_followers %>
+      <%= @issue.likes.count %>
     </p>
 
     <%- if current_user.present? %>

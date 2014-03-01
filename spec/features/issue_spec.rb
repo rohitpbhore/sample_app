@@ -25,7 +25,6 @@ describe "issues" do
 
     	fill_in 'issue[title]', with: 'go to bed'
       fill_in 'issue[description]', with: 'go to work'
-      fill_in 'issue[no_followers]', with: 3
 
     	click_button 'Create Issue'
 

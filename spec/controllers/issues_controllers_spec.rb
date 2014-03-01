@@ -100,7 +100,7 @@ describe IssuesController do
         end
 
         it "changes @issue's attributes" do
-          put :update, id: @issue,issue: FactoryGirl.attributes_for(:issue, title: 'Title', description: 'go to work', no_followers: 2)
+          put :update, id: @issue,issue: FactoryGirl.attributes_for(:issue, title: 'Title', description: 'go to work')
           @issue.reload
           expect(@issue.title).to eq("Title")
           expect(@issue.description).to eq("go to work")
