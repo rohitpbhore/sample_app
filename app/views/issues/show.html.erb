@@ -1,8 +1,14 @@
 <div class="row">
-  <!-- <p id="notice"><%= notice %></p> -->
-
   <div class="span2">
-    <%= link_to 'Edit', edit_issue_path(@issue), class: 'btn' %> |
+    <%- if current_user.present? %>
+      <%- if current_user.id == @issue.user_id %>
+        <%= link_to 'Edit', edit_issue_path(@issue), class: 'btn' %>
+      <%- else %>
+        <a class='btn' disabled="true">Edit</a>
+      <% end %>
+    <%- else %>
+      <a class='btn' disabled="true">Edit</a>
+    <% end %> |
     <%= link_to 'Back', issues_path, class: 'btn' %>
   </div>
 

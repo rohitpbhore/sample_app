@@ -5,13 +5,15 @@
     <td><%= comment.commenter %></td>
   <%- end %>
   <td class="span7"><%= comment.body %></td>
+  <td class="span1">
    <%- if current_user.present? %>
     <%- if current_user.id == comment.user_id %>
-      <td class="span1"><%= link_to 'Destroy', [comment.issue, comment],
+      <%= link_to 'Destroy', [comment.issue, comment],
                method: :delete, remote: true,
                data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %></td>
     <%- else %>
-      <td class="span1"><%= link_to 'Destroy', [comment.issue, comment], remote: true, data: { confirm: 'Sorry. Author can only delete comment.'  }, class: 'btn btn-mini btn-danger' %></td>
+      <%= link_to 'Destroy', [comment.issue, comment], remote: true, class: 'btn btn-mini btn-danger', disabled: true %>
     <%- end %>
   <%- end %>
+  </td>
 </tr>

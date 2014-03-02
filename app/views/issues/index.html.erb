@@ -9,7 +9,6 @@
       <th>No followers</th>
       <th>Comments</th>
       <th>Description</th>
-      <!-- <th>No followers</th> -->
       <th></th>
     </tr>
   </thead>
@@ -21,18 +20,25 @@
         <td style="text-align:center"><%= "#{issue.likes.count}" %></td>
         <td style="text-align:center"><%= "#{issue.comments.count}" %></td>
         <td class="span5"><%= issue.description %></td>
-        <!-- <td style="text-align:center"><%= issue.no_followers %></td> -->
         <td>
           <%= link_to 'Show', issue, class: 'btn btn-mini' %>
-          <%= link_to 'Edit', edit_issue_path(issue), class: 'btn btn-mini' %>
-          <%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger', remote: true %>
+          <%- if current_user.present? %>
+            <%- if current_user.id == issue.user_id %>
+              <%= link_to 'Edit', edit_issue_path(issue), class: 'btn btn-mini' %>
+              <%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger', remote: true %>
+            <%- else %>
+              <a class='btn btn-mini' disabled="true">Edit</a>
+              <a class='btn btn-mini btn-danger' disabled="true">Destroy</a>
+            <% end %>
+          <%- else %>
+            <a class='btn btn-mini' disabled="true">Edit</a>
+            <a class='btn btn-mini btn-danger' disabled="true">Destroy</a>
+          <% end %>
         </td>
       </li>
     </tr>
   <% end %>
   </tbody>
 </table>
-
 <br />
-
 <%= render "search" %>

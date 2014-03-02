@@ -6,6 +6,9 @@
     <div class="control-group">
       <%= f.input :description, input_html: { style: "width: 300px;", rows: "10" } %>
     </div>
+    <%- if current_user.present? %>
+      <%= f.input :user_id, :as => :hidden, input_html: { value: "#{current_user.id}" } %>
+    <%- end %>
     <div class="form-actions">
       <%= f.button :submit, "Submit", input_html: {  class: 'btn' } %>
     </div>

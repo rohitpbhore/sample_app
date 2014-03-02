@@ -9,6 +9,8 @@ class Issue < ActiveRecord::Base
   belongs_to :project
   has_many :comments, dependent: :destroy
 
+  attr_accessible :user_id
+
   after_save :add_to_timeline
   # before_save :strip_spaces_from_tag
 
