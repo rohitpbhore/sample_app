@@ -1,4 +1,4 @@
-## Ruby on Rails Sample Application
+## Ruby on Rails Sample Blog Application
 
 ### Terminologies Used
 
@@ -14,6 +14,8 @@
 
 ##### Rspec(Behavior Driven Development)
 
+##### Jquery-rails
+
 ##### Jquery Data table
 
 ##### Simple form
@@ -22,6 +24,9 @@
 
 ##### Devise
 
+##### Papertrail
+
+#### Ajax
 
 [Click here] to visit Application
 

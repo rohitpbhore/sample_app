@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.17'
-# gem 'sqlite3'
 gem 'pg'
 
 gem 'devise'
@@ -14,6 +13,7 @@ gem 'rails_12factor', group: :production
 gem 'jbuilder'
 gem 'simple_form'
 gem 'will_paginate', '~> 3.0'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -38,8 +38,6 @@ group :test do
   gem 'turn'
   gem 'guard-rspec'
   gem 'libnotify'
-  # For mac OS Only
-  # gem 'growl_notify'
   gem 'email_spec'
   gem 'rb-fsevent', require: false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard-livereload'
