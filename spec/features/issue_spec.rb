@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe "posts" do
 	before do
-    # sign_in
     visit issues_path
     click_link 'Sign up'
     fill_in 'user[username]', with: 'example'
@@ -11,13 +10,14 @@ describe "posts" do
     fill_in 'user[password_confirmation]', with: '12345678'
     click_button 'Sign up'
     page.should have_content 'Welcome! You have signed up successfully.'
-    @issue1 = FactoryGirl.create(:issue)
+    u = User.find_by_email('example@gg.com');
+    @issue1 = FactoryGirl.create(:issue, user_id: u.id)
 	end
 
   describe "GET /issues" do
     it "display some posts" do
     	visit issues_path
-    	page.should have_content 'go to work'
+    	page.should have_content @issue1.title
     end
 
     it "CREATE /posts" do
