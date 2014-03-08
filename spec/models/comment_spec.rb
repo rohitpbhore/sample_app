@@ -7,7 +7,6 @@ describe Comment do
   end
 
   it "is valid with body" do
-    comment = FactoryGirl.build(:comment)
     expect(FactoryGirl.build(:comment)).to be_valid
   end
 end
