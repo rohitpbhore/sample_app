@@ -1,29 +1,21 @@
 require 'spec_helper'
 
 describe CommentsController do
-  # let(:issue) do
-  #   FactoryGirl.create(:issue, title: 'Lawrence', description: 'go to work')
-  # end
+  let(:user) { FactoryGirl.create(:user) }
+  let(:issue) { FactoryGirl.create(:issue, user: user) }
+  let(:comment) { FactoryGirl.create(:comment, user: user, issue: issue) }
 
-  # let(:comment) do
-  #   FactoryGirl.create(:comment, issue: issue)
-  # end
+  it "COMMENT #create" do
+    request.env["devise.mapping"] = Devise.mappings[:user]
+    sign_in user
+    expect{ post :create, "comment"=>{ "body"=> comment.body, "user_id" => user.id }, "commit"=>"Add Comment", "issue_id"=> issue.id }.to change(Comment, :count).by(1)
+    response.body.should_not be_nil
+  end
 
-  # describe "COMMENT #create" do
-  #   before do
-  #     login_user
-  #   end
-  #   context "with valid attributes" do
-  #     it "saves the new comment in the database" do
-  #       # expect{post :create, comment: FactoryGirl.attributes_for(:comment)}.to change(Comment, :count).by(1)
-  #       post :create, comment: FactoryGirl.attributes_for(:comment)
-  #       expect(response).to redirect_to issue_path(assigns[:comment])
-  #     end
-  #     # it "redirects to comment#show" do
-  #     #   post :create, comment: FactoryGirl.attributes_for(:comment)
-  #     #   expect(response).to redirect_to issue_path(assigns[:comment])
-  #     # end
-  #   end
-  # end
-
+  it "COMMENT #destroy" do
+    request.env["devise.mapping"] = Devise.mappings[:user]
+    sign_in user
+    expect{ delete :destroy, issue_id: issue.id, id: comment.id }.to change(Comment, :count).by(-1)
+    response.body.should_not be_nil
+  end
 end

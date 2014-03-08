@@ -2,6 +2,7 @@ FactoryGirl.define do
 	factory :issue do
     sequence(:title) { |n| "title#{n}" }
     sequence(:description) { |n| "description#{n}" }
+    user
 	end
 
   factory :invalid_issue do

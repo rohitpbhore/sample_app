@@ -13,7 +13,7 @@ class Issue < ActiveRecord::Base
 
   after_save :add_to_timeline
   # before_save :strip_spaces_from_tag
-
+  belongs_to :user
   has_many :likes
 
   private

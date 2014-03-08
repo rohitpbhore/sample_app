@@ -10,8 +10,8 @@ describe "posts" do
     fill_in 'user[password_confirmation]', with: '12345678'
     click_button 'Sign up'
     page.should have_content 'Welcome! You have signed up successfully.'
-    u = User.find_by_email('example@gg.com');
-    @issue1 = FactoryGirl.create(:issue, user_id: u.id)
+    @user = User.find_by_email('example@gg.com');
+    @issue1 = FactoryGirl.create(:issue, user_id: @user.id)
 	end
 
   describe "GET /issues" do
@@ -63,7 +63,7 @@ describe "posts" do
   end
 
   describe "COMMENTS" do
-    @user = FactoryGirl.create(:user)
+    # @user = FactoryGirl.create(:user)
     @comment = FactoryGirl.create(:comment, issue: @issue1, user: @user)
     it "INDEX /comments" do
       page.should have_no_content @issue1.title
@@ -85,20 +85,18 @@ describe "posts" do
     end
   end
 
-  # describe "LIKE/UNLIKE" do
-  #   @like = FactoryGirl.create(:like, issue: @issue1, user: @user)
-  #   Rails.logger.debug '-----------------------------'
-  #   Rails.logger.debug @like.inspect
-  #   Rails.logger.debug '-----------------------------'
-  #   visit issue_path "#{@issue1.id}"
-  #   it "LIKE /create" do
-  #     click_button 'Follow'
-  #     page.should have_content 'Unfollow'
-  #   end
+  describe "LIKE/UNLIKE" do
+    it "LIKE /create" do
+      visit issue_path "#{@issue1.id}"
+      click_button 'Follow'
+      page.should have_content 'Unfollow'
+    end
 
-  #   it "LIKE /destroy" do
-  #     click_button 'Unfollow'
-  #     page.should have_content 'Follow'
-  #   end
-  # end
+    it "LIKE /destroy" do
+      @like = FactoryGirl.create(:like, issue: @issue1, user: @user)
+      visit issue_path "#{@issue1.id}"
+      click_button 'Unfollow'
+      page.should have_content 'Follow'
+    end
+  end
 end
