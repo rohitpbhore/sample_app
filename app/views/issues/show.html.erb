@@ -37,6 +37,13 @@
       <%= @issue.comments.count %>
     </p>
 
+    <%- if @issue.user.present? %>
+      <p>
+        <b>Author:</b>
+          <%= @issue.user.email %>
+      </p>
+    <%- end %>
+
     <%- if current_user.present? %>
       <div id="like">
         <%= render 'likes/like_button', :issue => @issue %>
