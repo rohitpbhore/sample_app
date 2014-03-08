@@ -6,7 +6,6 @@ class Issue < ActiveRecord::Base
 
   validates_with Yesnovalidator
 
-  belongs_to :project
   has_many :comments, dependent: :destroy
 
   attr_accessible :user_id

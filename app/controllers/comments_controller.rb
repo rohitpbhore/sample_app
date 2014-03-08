@@ -17,7 +17,4 @@ class CommentsController < ApplicationController
       format.js
     end
   end
-
-  def show
-  end
 end
