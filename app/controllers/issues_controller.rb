@@ -1,6 +1,5 @@
 class IssuesController < ApplicationController
   # GET /issues
-  # GET /issues.json
   before_filter :authenticate_user!, except: [:index, :show, :search]
   def index
     @issues = Issue
@@ -8,13 +7,10 @@ class IssuesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @issues }
-      format.xml { render xml: @issues }
     end
   end
 
   # GET /issues/1
-  # GET /issues/1.json
   def show
     begin
       @issue = Issue.find(params[:id])
@@ -25,17 +21,14 @@ class IssuesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @issue }
     end
   end
 
   # GET /issues/new
-  # GET /issues/new.json
   def new
     @issue = Issue.new
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @issue }
     end
   end
 
@@ -50,7 +43,6 @@ class IssuesController < ApplicationController
   end
 
   # POST /issues
-  # POST /issues.json
   def create
     @issue = Issue.new(params[:issue])
 
@@ -58,32 +50,26 @@ class IssuesController < ApplicationController
       if @issue.save
         # IssueMailer.issue_created(@issue).deliver
         format.html { redirect_to @issue, notice: 'Post was successfully created.' }
-        format.json { render json: @issue, status: :created, location: @issue }
       else
         format.html { render action: "new" }
-        format.json { render json: @issue.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PUT /issues/1
-  # PUT /issues/1.json
   def update
     @issue = Issue.find(params[:id])
 
     respond_to do |format|
       if @issue.update_attributes(params[:issue])
         format.html { redirect_to @issue, notice: 'Post was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @issue.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /issues/1
-  # DELETE /issues/1.json
   def destroy
     @issue = Issue.find(params[:id])
     @issue.destroy

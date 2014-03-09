@@ -32,7 +32,7 @@ describe IssuesController do
 
   describe "administrator access" do
     before do
-      login_user
+      login_user user
     end
 
     describe 'GET #new' do
