@@ -70,16 +70,16 @@ describe IssuesController do
         end
       end
 
-      # context "with invalid attributes" do
-      #   it "does not save the new issue in the database" do
-      #     expect{post :create,issue: FactoryGirl.attributes_for(:issue, title: nil, description: nil, no_followers: nil)}.to_not change(Issue, :count)
-      #   end
+      context "with invalid attributes" do
+        it "does not save the new issue in the database" do
+          expect{post :create,issue: FactoryGirl.attributes_for(:issue, title: nil, description: nil)}.to_not change(Issue, :count)
+        end
 
-      #   it "re-renders the :new template" do
-      #     post :create,issue: FactoryGirl.attributes_for(:issue, title: nil, description: nil, no_followers: nil)
-      #     expect(response).to render_template :new
-      #   end
-      # end
+        it "re-renders the :new template" do
+          post :create,issue: FactoryGirl.attributes_for(:issue, title: nil, description: nil)
+          expect(response).to render_template :new
+        end
+      end
     end
 
     describe 'PUT #update' do
@@ -89,7 +89,7 @@ describe IssuesController do
           expect(assigns(:issue)).to eq(issue)
         end
 
-        it "changes @issue's attributes" do
+        it "changes issue's attributes" do
           put :update, id: issue,issue: FactoryGirl.attributes_for(:issue, title: 'Title', description: 'go to work')
           issue.reload
           expect(issue.title).to eq("Title")
@@ -102,20 +102,19 @@ describe IssuesController do
         end
       end
 
-      # context "with invalid attributes" do
-      #   it "does not change the issue's attributes" do
-      #     put :update, id: @issue,issue: FactoryGirl.attributes_for(:issue, title: nil, description: 'go to work')
-      #     # @issue = FactoryGirl.build(:issue,description: nil, no_followers: nil)
-      #     @issue.reload
-      #     expect(@issue.title).to eq("go to work")
-      #     expect(@issue.description).to eq("rohit bhore")
-      #   end
+      context "with invalid attributes" do
+        it "does not change the issue's attributes" do
+          put :update, id: issue, issue: FactoryGirl.attributes_for(:issue, title: nil)
+          issue.reload
+          expect(issue.title).to eq("#{issue.title}")
+          expect(issue.description).to eq("#{issue.description}")
+        end
 
-      #   it "re-renders the edit template" do
-      #     put :update, id: @issue,issue: FactoryGirl.attributes_for(:issue, title: nil, description: 'go to work')
-      #     expect(response).to render_template :edit
-      #   end
-      # end
+        it "re-renders the edit template" do
+          put :update, id: issue, issue: FactoryGirl.attributes_for(:issue, description: nil)
+          expect(response).to render_template :edit
+        end
+      end
     end
 
     describe 'DELETE destroy' do

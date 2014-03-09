@@ -3,7 +3,7 @@ class Issue < ActiveRecord::Base
   validates_presence_of :title, message: "Title can't be blank"
   validates_presence_of :description, message: "Description can't be blank"
   validates_length_of :description, minimum: 5, message: "Description is too short (minimum is 5 characters)"
-  validates_with Yesnovalidator
+  # validates_with Yesnovalidator
 
   has_many :comments, dependent: :destroy
 
