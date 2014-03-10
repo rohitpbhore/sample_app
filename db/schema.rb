@@ -14,7 +14,6 @@
 ActiveRecord::Schema.define(:version => 20140308051011) do
 
   create_table "comments", :force => true do |t|
-    t.string   "commenter"
     t.text     "body"
     t.integer  "issue_id"
     t.datetime "created_at", :null => false

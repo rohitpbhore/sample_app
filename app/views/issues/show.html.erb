@@ -51,8 +51,6 @@
     <%- end %>
 
     <h2>Comments</h2>
-
-    <%- if current_user.present? %>
       <table class="table table-striped">
         <thead>
           <tr class="row">
@@ -64,10 +62,11 @@
           <%= render @issue.comments %>
         </tbody>
       </table>
-      <h2>Add a comment:</h2>
-      <%= render "comments/form" %>
-    <%- else %>
-      <h4><%= link_to "Login...,", new_user_session_path %> to follow and comment for this post.</h4>
-    <%- end %>
+      <%- if current_user.present? %>
+        <h2>Add a comment:</h2>
+        <%= render "comments/form" %>
+      <%- else %>
+        <h4><%= link_to "Login...,", new_user_session_path %> to follow and comment for this post.</h4>
+      <%- end %>
   </div>
 </div>
