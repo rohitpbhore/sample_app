@@ -1,5 +1,4 @@
 class Issue < ActiveRecord::Base
-  attr_accessible :description, :title
   validates_presence_of :title, message: "Title can't be blank"
   validates_presence_of :description, message: "Description can't be blank"
   validates_length_of :description, minimum: 5, message: "Description is too short (minimum is 5 characters)"
@@ -7,7 +6,7 @@ class Issue < ActiveRecord::Base
 
   has_many :comments, dependent: :destroy
 
-  attr_accessible :user_id
+  attr_accessible :user_id, :description, :title
 
   after_save :add_to_timeline
   # before_save :strip_spaces_from_tag
