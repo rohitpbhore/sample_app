@@ -4,14 +4,15 @@ class Issue < ActiveRecord::Base
   validates_length_of :description, minimum: 5, message: "Description is too short (minimum is 5 characters)"
   # validates_with Yesnovalidator
 
+  after_save :add_to_timeline
+
   has_many :comments, dependent: :destroy
+  belongs_to :user
+  has_many :likes
 
   attr_accessible :user_id, :description, :title
 
-  after_save :add_to_timeline
   # before_save :strip_spaces_from_tag
-  belongs_to :user
-  has_many :likes
 
   private
   def add_to_timeline
