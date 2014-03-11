@@ -10,7 +10,9 @@ class Issue < ActiveRecord::Base
   belongs_to :user
   has_many :likes
 
-  attr_accessible :user_id, :description, :title
+  # attr_accessible :user_id, :description, :title
+
+  accepts_nested_attributes_for :comments, :likes
 
   # before_save :strip_spaces_from_tag
 

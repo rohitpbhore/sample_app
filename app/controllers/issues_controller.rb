@@ -44,7 +44,7 @@ class IssuesController < ApplicationController
 
   # POST /issues
   def create
-    @issue = Issue.new(params[:issue])
+    @issue = Issue.new(issue_params)
 
     respond_to do |format|
       if @issue.save
@@ -61,7 +61,7 @@ class IssuesController < ApplicationController
     @issue = Issue.find(params[:id])
 
     respond_to do |format|
-      if @issue.update_attributes(params[:issue])
+      if @issue.update_attributes(issue_params)
         format.html { redirect_to @issue, notice: 'Post was successfully updated.' }
       else
         format.html { render action: "edit" }
@@ -78,4 +78,11 @@ class IssuesController < ApplicationController
       format.js
     end
   end
+
+  private
+
+  def issue_params
+    params.require(:issue).permit(:user_id, :description, :title, comments_attributes: [:body, :user_id], likes_attributes: [:issue_id, :user_id])
+  end
+
 end

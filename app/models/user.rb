@@ -5,14 +5,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username
+  # attr_accessible :email, :password, :password_confirmation, :remember_me, :username
 
   validates_uniqueness_of :username
 
   has_many :likes
 
   attr_accessor :login
-  attr_accessible :login
+  # attr_accessible :login
 
 
   def self.find_first_by_auth_conditions(warden_conditions)
