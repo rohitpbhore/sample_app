@@ -6,10 +6,8 @@ gem 'pg'
 gem 'devise'
 gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'jquery-rails'
-gem "paper_trail"
 gem "less-rails-bootstrap", "~> 2.3.3"
 gem 'rails_12factor', group: :production
-gem 'jbuilder'
 gem 'simple_form'
 gem "strong_parameters"
 
