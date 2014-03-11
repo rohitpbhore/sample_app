@@ -11,16 +11,15 @@ gem "less-rails-bootstrap", "~> 2.3.3"
 gem 'rails_12factor', group: :production
 gem 'jbuilder'
 gem 'simple_form'
+gem "strong_parameters"
 
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'therubyracer', platforms: :ruby
-  gem 'execjs'
-  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
-  gem 'jquery-ui-rails'
-end
+gem 'sass-rails',   '~> 3.2.3'
+gem 'coffee-rails', '~> 3.2.1'
+gem 'uglifier', '>= 1.0.3'
+gem 'therubyracer', platforms: :ruby
+gem 'execjs'
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+gem 'jquery-ui-rails'
 
 group :development, :test do
   gem "rspec-rails", "~> 2.14.0"
