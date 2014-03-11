@@ -44,6 +44,16 @@
       </p>
     <%- end %>
 
+    <p>
+      <b>Created At:</b>
+      <%= @issue.created_at.to_date.strftime("%d %B %Y") %>
+    </p>
+
+    <p>
+      <b>Updated At:</b>
+      <%= @issue.updated_at.to_date.strftime("%d %B %Y") %>
+    </p>
+
     <%- if current_user.present? %>
       <div id="like">
         <%= render 'likes/like_button', :issue => @issue %>
