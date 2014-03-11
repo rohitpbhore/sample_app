@@ -60,3 +60,13 @@ li{
 .controls{
   margin-left: 30px!important;
 }
+
+.DataTables_sort_icon
+{
+  float: right;
+  margin-top: 0px !important;
+}
+.dataTables_paginate a{
+  margin-left: 2px;
+  margin-right: 2px;
+}

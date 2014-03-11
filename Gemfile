@@ -4,7 +4,6 @@ gem 'rails', '3.2.17'
 gem 'pg'
 
 gem 'devise'
-gem "gretel"
 gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'jquery-rails'
 gem "paper_trail"
@@ -12,7 +11,6 @@ gem "less-rails-bootstrap", "~> 2.3.3"
 gem 'rails_12factor', group: :production
 gem 'jbuilder'
 gem 'simple_form'
-gem 'will_paginate', '~> 3.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
