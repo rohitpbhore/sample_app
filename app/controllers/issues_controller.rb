@@ -6,7 +6,7 @@ class IssuesController < ApplicationController
     @issues = @issues.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
     end
   end
 
@@ -20,7 +20,7 @@ class IssuesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
     end
   end
 
@@ -28,7 +28,7 @@ class IssuesController < ApplicationController
   def new
     @issue = Issue.new
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
     end
   end
 
@@ -84,5 +84,4 @@ class IssuesController < ApplicationController
   def issue_params
     params.require(:issue).permit(:user_id, :description, :title, comments_attributes: [:body, :user_id], likes_attributes: [:issue_id, :user_id])
   end
-
 end
