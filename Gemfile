@@ -1,28 +1,28 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.3'
-# gem 'pg'
+gem 'pg'
 
-# gem 'devise'
-# gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-# gem 'jquery-rails'
-# gem "less-rails-bootstrap", "~> 2.3.3"
-# gem 'rails_12factor', group: :production
-# gem 'simple_form'
-# gem "strong_parameters"
+gem 'devise'
+gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'jquery-rails'
+gem "less-rails-bootstrap", "~> 2.3.3"
+gem 'rails_12factor', group: :production
+gem "strong_parameters"
+gem 'simple_form'
 
-# gem 'sass-rails', '~> 4.0.0'
-# gem 'coffee-rails', '~> 4.0.0'
-# gem 'uglifier', '>= 1.3.0'
-# gem 'therubyracer', platforms: :ruby
-# gem 'execjs'
-# gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
-# gem 'jquery-ui-rails'
+gem 'sass-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'therubyracer', platforms: :ruby
+gem 'execjs'
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+gem 'jquery-ui-rails'
 
-# group :development, :test do
-#   gem "rspec-rails", "~> 2.14.0"
-#   gem "factory_girl_rails", "~> 4.2.1"
-# end
+group :development, :test do
+  gem "rspec-rails"
+  gem "factory_girl_rails"
+end
 
 # group :test do
 #   gem "faker", "~> 1.1.2"
