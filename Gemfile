@@ -24,18 +24,18 @@ group :development, :test do
   gem "factory_girl_rails"
 end
 
-# group :test do
-#   gem "faker", "~> 1.1.2"
-#   gem "capybara", "~> 2.1.0"
-#   gem "database_cleaner", "~> 1.0.1"
-#   gem "launchy", "~> 2.3.0"
-#   gem "selenium-webdriver", "~> 2.35.1"
-#   gem 'turn'
-#   gem 'guard-rspec'
-#   gem 'libnotify'
-#   gem 'email_spec'
-#   gem 'rb-fsevent', require: false if RUBY_PLATFORM =~ /darwin/i
-#   gem 'guard-livereload'
-# end
+group :test do
+  gem "faker"
+  gem "capybara"
+  # gem "database_cleaner", "~> 1.0.1"
+  gem "launchy"
+  # gem "selenium-webdriver", "~> 2.35.1"
+  # gem 'turn'
+  # gem 'guard-rspec'
+  # gem 'libnotify'
+  # gem 'email_spec'
+  # gem 'rb-fsevent', require: false if RUBY_PLATFORM =~ /darwin/i
+  # gem 'guard-livereload'
+end
 
 ruby '2.0.0'
