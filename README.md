@@ -3,35 +3,22 @@
 
 - Runs under Rails 4.0.3
 
-## Rails Terminologies Used
+## Terminologies Used
 
-##### Rails 4 Framework
-
-##### Rspec(Behavior Driven Development)
-
-##### Active Record Associations
-
-##### Active Record Validations
-
-##### Asset Pipeline
-
-##### Action Mailer
-
-##### Twitter bootstrap
-
-##### Jquery-rails
-
-##### Jquery Data table
-
-##### Simple form
-
-##### Less
-
-##### Devise
-
-##### Papertrail
-
-##### Ajax
+- Rails 4 Framework
+- Rspec(Behavior Driven Development)
+- Active Record Associations
+- Active Record Validations
+- Asset Pipeline
+- Action Mailer
+- Twitter bootstrap
+- Jquery-rails
+- Jquery Data table
+- Simple form
+- Less
+- Devise
+- Papertrail
+- Ajax
 
 
 ### More Information
