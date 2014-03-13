@@ -2,6 +2,10 @@
 
 ### Terminologies Used
 
+##### Rails 4 Framework
+
+##### Rspec(Behavior Driven Development)
+
 ##### Active Record Associations
 
 ##### Active Record Validations
@@ -11,8 +15,6 @@
 ##### Action Mailer
 
 ##### Twitter bootstrap
-
-##### Rspec(Behavior Driven Development)
 
 ##### Jquery-rails
 

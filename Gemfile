@@ -8,7 +8,7 @@ gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap
 gem 'jquery-rails'
 gem "less-rails-bootstrap", "~> 2.3.3"
 gem 'rails_12factor', group: :production
-gem "strong_parameters"
+gem 'protected_attributes'
 gem 'simple_form'
 
 gem 'sass-rails', '~> 4.0.0'
@@ -27,15 +27,7 @@ end
 group :test do
   gem "faker"
   gem "capybara"
-  # gem "database_cleaner", "~> 1.0.1"
   gem "launchy"
-  # gem "selenium-webdriver", "~> 2.35.1"
-  # gem 'turn'
-  # gem 'guard-rspec'
-  # gem 'libnotify'
-  # gem 'email_spec'
-  # gem 'rb-fsevent', require: false if RUBY_PLATFORM =~ /darwin/i
-  # gem 'guard-livereload'
 end
 
 ruby '2.0.0'
