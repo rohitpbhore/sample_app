@@ -53,16 +53,15 @@ You'll need to be in the application root directory:
 $ cd blog
 ```
 
-You can use the default settings if you're using SQLite.
-
-```ruby
-$ cp config/database.sample.yml config/database.yml
-```
-
-If you're using MySQL or PostgreSQL, you'll need to edit the file
+You'll need to edit the database.yml
 
 ```
 config/database.yml
+```
+Load a schema.rb file into the database
+
+```
+rake db:schema:load
 ```
 
 ### Running RSpec
