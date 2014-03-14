@@ -50,7 +50,7 @@ and go to http://localhost:3000/
 You'll need to be in the application root directory:
 
 ```ruby
-$ cd origin_restful_authentication
+$ cd blog
 ```
 
 You can use the default settings if you're using SQLite.
