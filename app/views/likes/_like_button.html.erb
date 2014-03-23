@@ -12,7 +12,7 @@
     <%= f.hidden_field :issue_id %>
     <%= f.hidden_field :user_id %>
     <%= f.submit "Follow", class: 'btn' %>
-    <% if @issue.likes.count >=1 && current_user.e%>
+    <% if @issue.likes.count >=1%>
       <span class="alert info">Other <%= @issue.likes.count %> people(s) are following this post.</span>
     <% end %>
   <% end %>
