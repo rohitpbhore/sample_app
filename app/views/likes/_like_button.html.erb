@@ -2,9 +2,9 @@
   <%= form_for like, :html => { :method => :delete }, :remote => true do |f| %>
     <%= f.submit "Unfollow", class: 'btn' %>
     <% if @issue.likes.count == 1 %>
-      <span class="alert info">You are now following this post.</span>
+      <span class="label label-info">You are now following this post.</span>
     <% else %>
-      <span class="alert info">You and other <%= @issue.likes.count - 1 %> people(s) are following this post.</span>
+      <span class="label label-info">You and other <%= @issue.likes.count - 1 %> people(s) are following this post.</span>
     <% end %>
   <% end %>
 <% else %>
@@ -13,7 +13,7 @@
     <%= f.hidden_field :user_id %>
     <%= f.submit "Follow", class: 'btn' %>
     <% if @issue.likes.count >=1%>
-      <span class="alert info">Other <%= @issue.likes.count %> people(s) are following this post.</span>
+      <span class="label label-info">Other <%= @issue.likes.count %> people(s) are following this post.</span>
     <% end %>
   <% end %>
 <% end %>

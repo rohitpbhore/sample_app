@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
 
   has_many :likes
+  has_many :issues
 
   attr_accessor :login
   # attr_accessible :login
