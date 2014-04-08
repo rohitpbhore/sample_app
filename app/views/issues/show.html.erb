@@ -58,6 +58,15 @@
       <div id="like">
         <%= render 'likes/like_button', :issue => @issue %>
       </div>
+
+    <div class="followrs">
+      <ul>
+        <%- @users.each do |u| %>
+          <li><%= u.email %></li>
+      <%- end %>
+    </ul>
+    </div>
+
     <%- end %>
     <div class="page-header">
       <h2>Comments</h2>

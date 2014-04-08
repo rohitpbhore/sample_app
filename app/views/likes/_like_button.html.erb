@@ -4,7 +4,7 @@
     <% if @issue.likes.count == 1 %>
       <span class="label label-info">You are now following this post.</span>
     <% else %>
-      <span class="label label-info">You and other <%= @issue.likes.count - 1 %> people(s) are following this post.</span>
+      <span class="label label-info">You and other <span class="followers_email"><%= @issue.likes.count - 1 %> people(s)</span> are following this post.</span>
     <% end %>
   <% end %>
 <% else %>
@@ -13,7 +13,7 @@
     <%= f.hidden_field :user_id %>
     <%= f.submit "Follow", class: 'btn' %>
     <% if @issue.likes.count >=1%>
-      <span class="label label-info">Other <%= @issue.likes.count %> people(s) are following this post.</span>
+      <span class="label label-info">Other <span class="followers_email"><%= @issue.likes.count %> people(s)</span> are following this post.</span>
     <% end %>
   <% end %>
 <% end %>
