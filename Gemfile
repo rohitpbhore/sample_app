@@ -28,6 +28,10 @@ group :test do
   gem "faker"
   gem "capybara"
   gem "launchy"
+  gem 'shoulda-matchers'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'selenium-webdriver'
 end
 
 ruby '2.0.0'

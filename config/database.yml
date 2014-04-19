@@ -32,7 +32,7 @@ development:
   pool: 100
   username: postgres
   password: macro129
-test:
+test: &test
   adapter: postgresql
   encoding: unicode
   database: new_issue-test
@@ -46,3 +46,6 @@ production:
   pool: 100
   username: rohitpbhore
   password:
+
+cucumber:
+  <<: *test
