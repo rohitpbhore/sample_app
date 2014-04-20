@@ -6,7 +6,7 @@
 ## Terminologies Used
 
 - Rails 4 Framework
-- Rspec(Behavior Driven Development)
+- Rspec, Cucumber(Behavior Driven Development)
 - Active Record Associations
 - Active Record Validations
 - Asset Pipeline
