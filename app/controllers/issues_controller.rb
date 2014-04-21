@@ -15,6 +15,14 @@ class IssuesController < ApplicationController
   def show
     begin
       @issue = Issue.find(params[:id])
+
+      @u = Like.joins(:issue, :user).where('issue_id' => params[:id])
+      @followers = []
+      @u.each do |y|
+        @records = User.where(:id => "#{y.user_id}")
+        @followers += User.where(id: @records.map {|i| i.id })
+      end
+
     rescue ActiveRecord::RecordNotFound
       Rails.logger.warn { "Not found" }
       nil

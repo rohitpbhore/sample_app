@@ -16,7 +16,7 @@
     <div class="page-header">
       <h1>Post</h1>
     </div>
-
+    <div class="left">
     <p>
       <b>Title:</b>
       <%= @issue.title %>
@@ -53,9 +53,20 @@
       <div id="like">
         <%= render 'likes/like_button', :issue => @issue %>
       </div>
-    <%- end %>
+    </div>
+    <div class="left">
+      <div class="followrs">
+        <ul>
+          <%- @followers.each do |u| %>
+            <li><%= link_to u.email, profile_path(u.id) %></li>
+          <%- end %>
+        </ul>
+      </div>
+      <%- end %>
+    </div>
+    <div class="clear"></div>
     <div class="page-header">
-      <h2>Comments</h2>
+      <h2>Comments<span style="font-size:15px;vertical-align:middle;"> (<%= @issue.comments.count %>)</span></h2>
     </div>
       <table class="table table-striped">
         <thead>
