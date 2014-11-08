@@ -84,3 +84,13 @@ To run the RSpec examples:
 ```ruby
 $ rake spec
 ```
+
+### Running Cucumber
+
+Prepare the test database
+
+To run the Cucumber examples:
+
+```ruby
+$ cucumber
+```
