@@ -2,8 +2,21 @@ class IssuesController < ApplicationController
   # GET /issues
   before_filter :authenticate_user!, except: [:index, :show, :search]
   def index
-    @issues = Issue
-    @issues = @issues.all
+    # @issues = Issue
+    # @issues = @issues.all
+
+    # @query = Issue.search do
+    #   fulltext params[:search]
+    # end
+    # @issues = @query.results
+    if params[:search] == nil
+      @issues = Issue.all
+    else
+      @search = Issue.search do
+        fulltext params[:search]
+      end
+      @issues = @search.results
+    end
 
     respond_to do |format|
       format.html

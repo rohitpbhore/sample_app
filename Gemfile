@@ -19,11 +19,13 @@ gem 'execjs'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'jquery-ui-rails'
 gem "omniauth-google-oauth2", "~> 0.2.1"
+gem 'sunspot_rails'
 
 group :development, :test do
   gem "rspec-rails"
   gem "factory_girl_rails"
   gem 'pry'
+  gem 'sunspot_solr'
 end
 
 group :test do

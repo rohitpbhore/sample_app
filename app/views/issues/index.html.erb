@@ -44,4 +44,31 @@
   </tbody>
 </table>
 <br />
-<%= render "search" %>
+<%#= render "search" %>
+
+<h3>Solar search</h3>
+<%= form_tag issues_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search %>
+    <%= submit_tag "Search" ,:name => nil %>
+  </p>
+<% end %>
+
+<% unless @search.blank? %>
+  <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="issues" style="margin-bottom: 8px">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody id="issues">
+      <% for issue in @search.results %>
+        <tr>
+          <td><%= issue.title %></td>
+          <td><%= issue.description %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

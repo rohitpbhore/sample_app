@@ -28,10 +28,10 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: new_issues
+  database: blog
   pool: 100
   username: postgres
-  password: macro129
+  password: rohit@123
 test: &test
   adapter: postgresql
   encoding: unicode
