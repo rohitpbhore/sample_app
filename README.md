@@ -19,7 +19,7 @@
 - Devise
 - Papertrail
 - Ajax
-
+- Full Text Search 
 
 ### More Information
 [Click here] to visit Application
@@ -41,6 +41,12 @@ Start the server
 
 ```
 $ rails server
+```
+
+Start the Solr server by running:
+
+```ruby
+rake sunspot:solr:start
 ```
 
 and go to http://localhost:3000/
