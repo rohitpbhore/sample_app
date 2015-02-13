@@ -20,6 +20,7 @@
 - Papertrail
 - Ajax
 - Full Text Search 
+- OmniAuth Google OAuth2
 
 ### More Information
 [Click here] to visit Application
